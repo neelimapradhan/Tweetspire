@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Python Flask Bucket List App</title>
+ 
+ 
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <style>
+    body {
+        background-color: #C7E0F2;
+    }
+
+    #tweetbutton {
+        height: 120px;
+        width: 250px;
+        border-radius: 5px;
+        background-color: #F2F1BB;
+        display: block;
+        position: relative;
+        border:4px solid #8A0829;        
+        margin: 0 auto;
+    }
+
+    #tweetbutton p {
+        font-size: 39px;
+        font-weight: 5px;
+        font-family: Times;
+        text-align: center;
+        font-family:"Impact", Charcoal, sans-serif;
+    }
+
+    #tweetbutton :hover {
+        opacity: 0.6;
+    }
+
+    #home-text h1, h3 {
+        padding-left: 200px;
+        padding-right: 200px;
+        text-align: center;
+        position: relative;
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
+    }
+
+    </style>
+
+    <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+ 
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+ 
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+ 
+ 
+</head>
+ 
+<body>
+ 
+    
+ <div id="home-text"><h1>Hey There!</h1>
+ </br>
+ <h3> Tweetspire aims to spread positivity and kindness among the world, one tweet at a time! Click the button below and send motivating and inspiring words to those around you. <br> <br> Hope your day is as fabulous as you are! </h3>
+ </div>
+
+ <br>
+
+ <div id="tweetbutton"> <p>Show me tweets </p></div>
+
+ <div id ="twitter-wjs">
+
+
+ </div>
+
+   
+</body>
+ 
+</html>
