@@ -13,7 +13,7 @@ consumer_secret = "sjqNYRK7J30MyinX8nT9D10M9gjvYYRRtVjKootW8iEm6m8PlF"
 Access_Token ="254776272-gnSSmg76q4e0be8rFwsw5ai00M3uJ36WM7HuMHGp"
 Access_Token_Secret	="STvoOLUgEIzsCPrjrhvoJpPUma2KfJPhhRZONARv6ZvOw"
 
-search_url = 'https://api.twitter.com/1.1/search/tweets.json?q=depressed+OR+hopeless+OR+upset&result_type=mixed&count=100'
+search_url = 'https://api.twitter.com/1.1/search/tweets.json?q=depressed+OR+hopeless+OR+upset&result_type=mixed&count=10'
 
 
 getFullTweet = 'https://api.twitter.com/1.1/statuses/oembed.json?id={0}'
@@ -51,10 +51,10 @@ def request(url):
     return response
 
 def putInList(data):
-    for x in range(0, 10):
+    for x in range(0, 5):
         if 'text' in data['statuses'][x]:
             status = data['statuses'][x]['text']
-            if float(textSentiment(status)) < -0.2:
+            if float(textSentiment(status)) < -0.5:
                 tweetlist.append(data['statuses'][x]['id_str'])
     return tweetlist
 
@@ -80,7 +80,8 @@ def textSentiment(status):
         textscore = sentiment['docSentiment']['score']
     return textscore
 
-print getEmbed()
+
+
 
 
 

@@ -2,7 +2,7 @@
 <html lang="en">
  
 <head>
-    <title>Python Flask Bucket List App</title>
+    <title>Tweetspire</title>
  
  
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -10,42 +10,71 @@
     <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Advent+Pro' rel='stylesheet' type='text/css'>
 
     <style>
+
     body {
-        background-color: #C7E0F2;
+         background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../static/img/tulips.jpg");
+        -webkit-background-size: cover; 
+        background-size: cover;
+       
     }
 
     #tweetbutton {
         height: 120px;
         width: 250px;
         border-radius: 5px;
-        background-color: #F2F1BB;
+        background-color: #F5EFFB;
         display: block;
         position: relative;
-        border:4px solid #8A0829;        
+        border:4px solid white;        
         margin: 0 auto;
+        opacity: 0.6;
+        filter: alpha(opacity=60); 
     }
 
     #tweetbutton p {
         font-size: 39px;
-        font-weight: 5px;
         font-family: Times;
         text-align: center;
         font-family:"Impact", Charcoal, sans-serif;
+        cursor: pointer;
     }
 
     #tweetbutton :hover {
-        opacity: 0.6;
+        opacity: 0.3;
     }
 
     #home-text h1, h3 {
+        color: white;
+        font-weight: 15px;
         padding-left: 200px;
         padding-right: 200px;
         text-align: center;
         position: relative;
-        font-family: "Trebuchet MS", Helvetica, sans-serif;
+        font-family: 'Advent Pro', "Trebuchet MS", Helvetica, sans-serif;
     }
+
+    #tweets {
+        padding-left: 25%;
+        position: relative;
+        display :none;
+        margin: 0 auto;
+        border-radius: 7px;
+    }
+
+    #twitter-wjs {
+        text-align: center;
+        position: relative;
+        margin: auto;
+    }
+    #footer {
+        color:white;
+        float: right;
+        position:absolute; bottom:0;
+    }
+
 
     </style>
 
@@ -64,14 +93,22 @@
   };
  
   return t;
-}(document, "script", "twitter-wjs"));</script>
- 
- 
+}(document, "script", "twitter-wjs"));
+
+
+    </script>
+
+
+
 </head>
  
 <body>
+
+<br>
+<br>
+<br>
  
-    
+  
  <div id="home-text"><h1>Hey There!</h1>
  </br>
  <h3> Tweetspire aims to spread positivity and kindness among the world, one tweet at a time! Click the button below and send motivating and inspiring words to those around you. <br> <br> Hope your day is as fabulous as you are! </h3>
@@ -81,12 +118,28 @@
 
  <div id="tweetbutton"> <p>Show me tweets </p></div>
 
- <div id ="twitter-wjs">
+ 
+<div id = "tweets">
+{% for html in htmls %}
+   <div id ="twitter-wjs"> 
+        {{ html|safe }}  
+    </div>
+    <br>
+{% endfor %}
+</div>
 
 
- </div>
 
-   
+<p id="footer"> copyright © 2015 Neelima Pradhan </p>
+
+<script>
+document.getElementById("tweetbutton").onclick = function(){
+document.getElementById("home-text").style.display = 'none';
+document.getElementById("tweetbutton").style.display = 'none';
+document.getElementById("footer").style.display = 'none';
+document.getElementById("tweets").style.display = 'block';
+};
+</script>
 </body>
  
 </html>
